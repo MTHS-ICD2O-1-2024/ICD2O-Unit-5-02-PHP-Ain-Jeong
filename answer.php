@@ -46,42 +46,34 @@
       <div class="right-image">
         <img src="./images/positive_negative.jpg" alt="Positive and Negative numbers image" width="500" />
       </div>
-      <br />
-      <form action="answer.php" method="get">
-        <div class="page-content-guide">
-          Select what kind of number you would like:
+      <div class="page-content-answer">
+        <div id="answer">
+          <?php
+          // Generate random number
+          $randomNumber = random_int(1, 6);
+
+          // Input
+          $numberOption = $_GET["kind-of-number"];
+
+          // Process
+          if ($numberOption == 1) {
+            // Output
+            echo "Your random number is: " . $randomNumber;
+          } else {
+            // Process
+            $randomNegativeNumber = $randomNumber * -1;
+
+            // Output
+            echo "Your random number is: " . $randomNegativeNumber;
+          }
+          ?>
         </div>
-        <div class="page-content">
-          <label
-            class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-            for="option-positive">
-            <input
-              type="radio"
-              id="option-positive"
-              class="mdl-radio__button"
-              name="kind-of-number"
-              value="1"
-              checked />
-            <span class="mdl-radio__label">Positive</span>
-          </label>
-          <label
-            class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-            for="option-negative">
-            <input
-              type="radio"
-              id="option-negative"
-              class="mdl-radio__button"
-              name="kind-of-number"
-              value="2" />
-            <span class="mdl-radio__label">Negative</span>
-          </label>
-        </div>
-        <br />
-        <button
-          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          type="submit">
-          Generate
-        </button>
-      </form>
+      </div>
+      <div class="page-content-return">
+        <a href="./index.php">Return ...</a>
+      </div>
+    </main>
+  </div>
+</body>
 
 </html>
